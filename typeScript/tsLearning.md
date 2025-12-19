@@ -1,0 +1,4 @@
+## Ways TS helped me catch bugs
+- While defining `const canvas` inside `ParticleTest/main.ts`, I wrote in `document.body.appendChild("canvas");` first thinking it would return a new `canvas` element, but that is not what the function is used for. TypeScript caught the incorrect parameter, and it reminded me that I instead had to write `const canvas = document.createElement("canvas"); document.body.appendChild(canvas);`
+- While writing a for loop to iterate through all `Particle`s in `ParticleTest/main.ts`, I first tried `for(let particle in particles)`, unsure if I needed the keyword `in` or `of`. Once I typed `particle.`, it showed autocomplete options that I didn't want, and I realized I needed to use `of` instead to get the value rather than the key
+- Apparently `canvas.getContext` can return `null`! I need to explicitly cast it to `CanvasRenderingContext2D`
